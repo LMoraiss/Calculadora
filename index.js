@@ -84,7 +84,7 @@ while (true) {
 
         if (continuar !== 's') {
             console.log("\nEncerrando a calculadora.");
-            break; // Sai do loop e encerra o programa se a resposta não for 's'
+            break; 
         }
     }
 }
