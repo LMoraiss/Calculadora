@@ -4,12 +4,18 @@ let num1 = 0;
 let num2 = 0;
 let numeros = [];
 
-let soma = 0;
-let subtracao = 0;
-let multiplicacao = 0;
-let divisao = 0;
-let porcentagem = 0;
-
+function calculoSoma(n1, n2){
+    return n1 + n2;
+}
+function calculoSubtracao(n1, n2){
+    return n1 - n2;
+}
+function calculoMultiplicacao(n1, n2){
+    return n1 * n2;
+}
+function calculoDivisao(n1, n2){
+    return n1 / n2;
+}
 function calculoPorcentagem(valor, total) {
     return (valor / total) * 100;
 }
@@ -52,39 +58,37 @@ while (true) {
 
     switch (operacao) {
         case 1:
-            soma = num1 + num2;
+            let soma = calculoSoma(num1, num2);
             console.log(`\nA soma de ${num1} + ${num2} é igual a ${soma}\n`);
             break;
         case 2:
-            subtracao = num1 - num2;
+            let subtracao = calculoSubtracao(num1, num2);
             console.log(`\nA subtração de ${num1} - ${num2} é igual a ${subtracao}\n`);
             break;
         case 3:
-            multiplicacao = num1 * num2;
+            let multiplicacao = calculoMultiplicacao(num1, num2);
             console.log(`\nA multiplicação de ${num1} x ${num2} é igual a ${multiplicacao}\n`);
             break;
         case 4:
             if (num2 !== 0) {
-                divisao = num1 / num2;
+                let divisao = calculoDivisao(num1, num2);
                 console.log(`\nA divisão de ${num1} / ${num2} é igual a ${divisao}\n`);
             } else {
                 console.log("\nErro: Divisão por zero não é permitida.\n");
             }
             break;
         case 5:
-            porcentagem = calculoPorcentagem(num1, num2);
+            let porcentagem = calculoPorcentagem(num1, num2);
             console.log(`\n${num1} é ${porcentagem}% de ${num2}\n`);
             break;
     }
 
-    // Se a operação escolhida não for sair (opção 6), perguntar se o usuário deseja continuar
-    if (operacao !== 6) {
-        console.log("Deseja realizar outra operação? (s/n)");
-        let continuar = prompt().toLowerCase();
+    // Perguntar se o usuário deseja continuar após cada operação
+    console.log("Deseja realizar outra operação? (s/n)");
+    let continuar = prompt().toLowerCase();
 
-        if (continuar !== 's') {
-            console.log("\nEncerrando a calculadora.");
-            break; 
-        }
+    if (continuar !== 's') {
+        console.log("\nEncerrando a calculadora.");
+        break;
     }
 }
